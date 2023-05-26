@@ -4,11 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Darumadrop+One&family=Gloock&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+  
     <title>Mystory</title>
 </head>
 <body>
-    
+    <header>
+        <!-- 顶部导航栏 -->
+        <div class="separator-line"></div>
+        <div class="top-nav">
+          <div class="logo">
+            <!-- 左上角Logo -->
+            <p class="logo" id="username-display"></p>
+          </div>
+        </div>
+      </header>
+
+      <main>
+		<section class="first-view-section js-cherry">
+			<img th:src="@{/img/cherry.jpg}" alt="">
+			<h2 class="cherry-card" th:text="Welcome+' '+${userName}"></h2>
+			<img th:src="@{/img/cherry.jpg}" alt="">
+		</section>
+		<section class="blog-list-section">
+			<h2>Blog List</h2>
+			<div class="blog-list-flex">
+				<article class="blog-topic-article" th:each="blog:${blogList}">
+					<a th:href="@{/user/blog/edit/{blogId}(blogId=${blog.blogId})}" class="blog-colum">
+						<div class="blog-colum-category">
+							<p th:text=" ${blog.category}"></p>
+						</div>
+						<img th:src="@{/blog-img/{items}(items=${blog.blogImage})}">
+						<div class="colum__box">
+							<p th:text="${#temporals.format(blog.registerDate, 'yyyy/MM/dd')}"></p>
+							<p th:text=" ${blog.blogTitle}"></p>
+						</div>
+					</a>
+				</article>
+			</div>
+		</section>
+	</main>
     
       <script src="script.js"></script>
 </body>
