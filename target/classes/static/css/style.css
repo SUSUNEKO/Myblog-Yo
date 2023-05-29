@@ -7,6 +7,15 @@
     font-family: 'Antonio','Noto Serif','Bodoni Moda','Playfair Display','Gloock','Roboto Mono',sans-serif,monospace,serif;
   }
 
+  button{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-family: 'Antonio', sans-serif;
+    font-size: 22px;
+
+  }
+
   /* 顶部导航栏样式 */
   .top-nav {
     position: relative;
@@ -34,26 +43,7 @@
     z-index: 999;
   }
 
-  .signup-button {
-    position: fixed;
-    top: 0;
-    right: 0;
-    padding: 10px;
-    background-color: #d8152a;
-    font-family: 'Antonio', sans-serif;
-    font-weight: 500;
-    font-size: 20px;
-    z-index: 999;
-  }
-
-  .signup-link {
-    color: #ffcdcd; 
-    text-decoration: none; /* 移除下划线 */
-  }
   
-
-
-
 /* 登录表单样式 */
   .hidden-input {
     border: none;
@@ -129,7 +119,7 @@
   .login-form .arrow-link {
     font-size: 20px;
     margin-left: 10px;
-    color: #555;
+    color: #ec2626;
     text-decoration: none;
   }
 
