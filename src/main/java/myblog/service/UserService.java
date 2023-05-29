@@ -30,7 +30,7 @@ public class UserService {
 	
 	public UserEntity loginAccount(String userLoginName, String password) {
 		
-		UserEntity userEntity = userDao.findByLoginNameAndPassword(userLoginName, password);
+		UserEntity userEntity = userDao.findByUserLoginNameAndPassword(userLoginName, password);
 		
 		if(userEntity == null) {
 			return null;

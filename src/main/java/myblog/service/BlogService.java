@@ -23,19 +23,21 @@ public class BlogService {
 		}
 	}
 	
-	//新しいブログを書く、日付違うだけてタイトルが重複にも構いません
-	public void createBlogPost(String blogTitle,LocalDate registerDate,
+	//新しいブログを書く、重複にも構いません
+	public boolean createBlogPost(String blogTitle,
 			String blogContents,String blogAttribute,
 			String blogImgUrl,Long userId) {
 		
-		BlogEntity blogList = blogDao.findByBlogTitleAndDate(blogTitle,registerDate);
-		blogDao.save(new BlogEntity(blogTitle,registerDate,blogContents,blogAttribute,
-				 blogImgUrl,userId));
-		/*
-		 * if(blogList == null) { blogDao.save(new
-		 * BlogEntity(blogTitle,registerDate,blogContents,blogAttribute,
-		 * blogImgUrl,userId)); return true; }else { return false; }
-		 */
+		BlogEntity blogList = blogDao.findByBlogTitle(blogTitle);
+		// blogDao.save(new BlogEntity(blogTitle,registerDate,blogContents,blogAttribute,
+		// 		 blogImgUrl,userId));
+		
+		if(blogList == null) { 
+			blogDao.save(new BlogEntity(blogTitle,blogContents,blogAttribute,blogImgUrl,userId)); 
+			return true; 
+		}else {
+			return false; }
+		 
 	}
 	
 	public BlogEntity getBlogPost(Long blogId) {

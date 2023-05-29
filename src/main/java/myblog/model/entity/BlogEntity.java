@@ -33,10 +33,10 @@ public class BlogEntity {
 	@Column(name = "blog_title")
 	private String blogTitle;
 	
-	@NonNull
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@Column(name = "register_date")
-	private LocalDate registerDate;
+	// @NonNull
+	// @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	// @Column(name = "register_date")
+	// private LocalDate registerDate;
 	
 	@NonNull
 	@Column(name = "blog_contents")
@@ -54,24 +54,30 @@ public class BlogEntity {
 	private Long userId;
 	
 
-	public BlogEntity( @NonNull String blogTitle, @NonNull LocalDate registerDate,
-			@NonNull String blogContents, @NonNull String blogAttribute, @NonNull String blogImgUrl, Long userId) {
-		this.blogTitle = blogTitle;
-		this.registerDate = registerDate;
-		this.blogContents = blogContents;
-		this.blogAttribute = blogAttribute;
-		this.blogImgUrl = blogImgUrl;
-		this.userId = userId;
-	}
+	// public BlogEntity( @NonNull String blogTitle, @NonNull LocalDate registerDate,
+	// 		@NonNull String blogContents, @NonNull String blogAttribute, @NonNull String blogImgUrl, Long userId) {
+	// 	this.blogTitle = blogTitle;
+	// 	this.registerDate = registerDate;
+	// 	this.blogContents = blogContents;
+	// 	this.blogAttribute = blogAttribute;
+	// 	this.blogImgUrl = blogImgUrl;
+	// 	this.userId = userId;
+	// }
 	
-	/*
-	 * public BlogEntity( @NonNull String blogTitle,
-	 * 
-	 * @NonNull String blogContents, @NonNull String blogAttribute, @NonNull String
-	 * blogImgUrl, Long userId) { this.blogTitle = blogTitle; this.registerDate =
-	 * LocalDateTime.now(); this.blogContents = blogContents; this.blogAttribute =
-	 * blogAttribute; this.blogImgUrl = blogImgUrl; this.userId = userId; }
-	 */
+	
+	 public BlogEntity( 
+		@NonNull String blogTitle,
+	 	@NonNull String blogContents,
+		@NonNull String blogAttribute, 
+		@NonNull String blogImgUrl,
+		Long userId) {
+			this.blogTitle = blogTitle;
+			// this.registerDate = LocalDateTime.now(); 
+			this.blogContents = blogContents; 
+			this.blogAttribute = blogAttribute; 
+	  		this.blogImgUrl = blogImgUrl; 
+	 		this.userId = userId; }
+	 
 	
 	
 	

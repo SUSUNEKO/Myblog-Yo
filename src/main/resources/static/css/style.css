@@ -75,6 +75,13 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
+  .register-input{
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
   
   #username {
     font-size: 100pt;
