@@ -1,0 +1,217 @@
+
+body,html{
+    height: 100%;
+    font-family: 'Antonio','Noto Serif','Bodoni Moda','Playfair Display','Gloock','Roboto Mono',sans-serif,monospace,serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8e7e8;
+    min-width: 800px;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+    flex-direction: row;
+  }
+  /* 左上角的返回总览按钮 */
+  .header {
+    position: fixed;
+    left: 0;
+    top: 20px;
+    flex: 1;
+    padding: 10px;
+  }
+  .material-symbols-outlined {
+    margin-left: 40px;
+    font-size: 40px;
+    color: #1c1919;
+    cursor: pointer; /*指定悬浮时光标形状 */
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+  }
+  
+  /* ---------- */
+
+  /* 左右菜单的位置设定 */
+  .left-section,
+  .right-section {
+    width:20%;
+    position: fixed;
+    top:50%;
+    flex: 1;
+    padding: 10px;
+    transform: translateY(-50%); 
+
+  }
+  .left-section {
+    left: 0;
+  }
+  .right-section{
+    right: 0;
+  }
+/* ----- */
+
+
+/* 左边 */
+.checkboxes {
+
+  font-family: 'Antonio', sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  position: absolute;
+  transform: translateX(50%);
+  display: flex;
+  flex-direction: column;
+}
+/* 隐藏默认的单选框 */
+input[type="radio"] {
+  vertical-align: middle;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 30px;
+  height: 30px;
+  margin: 15px;
+  border-radius: 20%;
+  border: 3px solid #0e0c0c;
+  outline: none;
+}
+
+/* 自定义选中状态的样式 */
+input[type="radio"]:checked {
+  background-color: #9f2222;
+  border-color: #1d1818;
+}
+
+
+/* 中间 */
+  .middle-section {
+    position: relative;
+    flex-grow: 1;
+    padding: 30px;
+    overflow-y: auto;
+    background-color: #f4edeb;
+    margin-left: calc(20% + 20px); /* 20px为左侧内容的间距 */
+    margin-right: calc(20% + 20px); /* 20px为右侧内容的间距 */    
+    border-left: #1f1917 solid 5px;
+    border-right: #1f1917 solid 5px;
+  }
+  
+  .title-input {
+    
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"] {
+    font-size: 30pt;
+    font-family:'Playfair Display', serif;
+    font-weight: 700;
+    font-style: italic;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    width: 100%;
+  }
+  
+  .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60%;
+    height: 2px;
+    background-color: black;
+  }
+  
+  .date-div {
+    color: #9f2222;
+    font-size: 10pt;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 900;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 20px;
+    margin-right: 30px;
+  }
+  
+
+  /* 右边 */
+  .right-section {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .upload-button {
+    color: #f4edeb;
+    bottom: -100px; 
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #d8152a;
+    font-family: 'Antonio', sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+    width: 100px;
+    box-shadow: 0 5px 17px 6px rgba(234, 18, 18, 0.2); 
+    border: 3px solid #0b0808;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+
+
+  .upload-button:hover {
+  background-color: #ee7a31;
+  }
+
+  
+  #editor-container {
+    height: calc(100vh - 100px); /* Adjust this value based on your needs */
+  }
+  
+  /* ++++++图像控件+++ */
+  .editor-imgimport {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .img-upload-button {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    margin-right: 10px;
+  }
+  
+  .image-preview {
+    /* display: none; */
+    position: relative;
+    width: 600px;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .image-preview img {
+    width: 600px;
+    height: 400px;
+    object-fit: cover;
+    transform: translateY(-50%);
+    filter: brightness(80%) saturate(50%) hue-rotate(0deg) ;
+  }
+  
+  .image-preview::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(145, 9, 25); /* 蒙版的颜色 */
+    opacity: 1; /* 蒙版的透明度 */
+    mix-blend-mode: lighten;
+
+  }
+  
+  

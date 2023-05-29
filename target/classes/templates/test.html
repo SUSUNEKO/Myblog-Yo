@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+  <title>Document</title>
+</head>
+<body>
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>删除确认窗口</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
+      /* 样式代码 */
+    </style>
+  </head>
+  <body>
+    <button id="deleteButton">删除</button>
+  
+    <div id="confirmDialog" class="dialog">
+      <div class="dialog-content">
+        <p>SURE?</p>
+        <div class="dialog-buttons">
+          <button id="noButton">NO</button>
+          <button id="yesButton">YES</button>
+        </div>
+      </div>
+    </div>
+  
+    <script>
+      const deleteButton = document.getElementById("deleteButton");
+      const confirmDialog = document.getElementById("confirmDialog");
+      const noButton = document.getElementById("noButton");
+      const yesButton = document.getElementById("yesButton");
+  
+      deleteButton.addEventListener("click", function() {
+        confirmDialog.style.display = "flex";
+      });
+  
+      noButton.addEventListener("click", function() {
+        confirmDialog.style.display = "none";
+      });
+  
+      yesButton.addEventListener("click", function() {
+        // 在这里执行删除操作或其他逻辑
+        confirmDialog.style.display = "none";
+      });
+    </script>
+  </body>
+  </html>
+  
+</body>
+</html>
