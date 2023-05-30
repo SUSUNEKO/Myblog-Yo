@@ -29,41 +29,43 @@
 			<div class="container">
 				<div class="blog-list-left-section">
 				  <!-- 左侧内容 -->
-				  <div class="EssayContainer" th:each="blog:${blogList}">
+				  <div class="EssayContainer" >
 					<div id="Essay-grid-container" class="grid-container" name="EssayGrid">
-						<div class="Essay-grid-item">
+						<div class="Essay-grid-item" >
 							<!-- 单个项目内容 -->
-							<a th:href="@{/user/blog/edit/{blogId}(blogId=${blog.blogId})}" class="blog-colum" th:each="blog:${blogList}" >
-								<div class="img-container" name="imgContainer" id="imgContainer">
-									<img th:src="@{/blog-img/{items}(items=${blog.blogImage})}">
+<!--						 图片可碰-->
+							<a th:href="@{/user/blog/view/{blogId}(blogId=${essay.blogId})}" class="blog-colum" th:each="essay:${essayList}" >
+								<div class="img-container" name="imgContainer" id="essay-imgContainer">
+									<img th:src="@{/img/{items}(items=${essay.blogImgUrl})}">
 								</div>
-							</a>
-							<!-- <a th:href="@{/user/blog/edit/{blogId}(blogId=${blog.blogId})}" class="blog-colum">
-								<div class="title-container" name="titleContainer" id="title">
-									<p th:text=" ${blog.blogTitle}"></p>
-								</div>
-							</a>
-							<div class="registerDate-container" name="registerDateContainer">
-									<p th:text="${#temporals.format(blog.registerDate, 'yyyy/MM/dd')}"></p>
-							</div>
-							<a th:href="@{/user/blog/edit/{blogId}(blogId=${blog.blogId})}" class="blog-colum">
+								<!--标题可碰-->
+
+<!--								<a th:href="@{/user/blog/view/{blogId}(blogId=${essay.blogId})}" class="blog-colum">-->
+									<div class="title-container" name="titleContainer" id="title">
+										<p th:text=" ${blogTitle}"></p>
+									</div>
+								</a>
 								<div class="article-abstract" name="articleAbstract">
-									<p th:text=" ${blog.contents}"></p>
+									<p th:text=" ${blogContents}"></p>
 								</div>
-							</a> -->
+							</a>
+
+<!--							<div class="registerDate-container" name="registerDateContainer">-->
+<!--									<p th:text="${#temporals.format(blog.registerDate, 'yyyy/MM/dd')}"></p>-->
+<!--							</div>-->
 						</div>
 					</div>					
 				</div>
 				</div>
-				<div class="blog-list-right-section">
-				  <!-- 右侧内容 -->
-				  <div class="NoteContainer">
+			<div class="blog-list-right-section">
+				<!-- 右侧内容 -->
+				<div class="NoteContainer">
 					<div id="Note-grid-container" class="grid-container" name="NoteGrid">
 						<div class="grid-item">
 							<!-- 单个项目内容 -->
-							<a th:href="@{/user/blog/edit/{blogId}(blogId=${blog.blogId})}" class="blog-colum" th:each="blog:${blogList}">
-							<div class="img-container" name="imgContainer" id="imgContainer">
-								<img th:src="@{/blog-img/{items}(items=${blog.blogImage})}">
+							<a th:href="@{/user/blog/view/{blogId}(blogId=${note.blogId})}" class="blog-colum" th:each="note:${noteList}">
+							<div class="img-container" name="imgContainer" id="note-imgContainer">
+								<img th:src="@{/img/{items}(items=${note.blogImgUrl})}">
 							</div>
 							</a>
 							<!-- <a th:href="@{/user/blog/edit/{blogId}(blogId=${blog.blogId})}" class="blog-colum">

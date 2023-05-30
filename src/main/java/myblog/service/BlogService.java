@@ -14,7 +14,7 @@ public class BlogService {
 	@Autowired
 	private BlogDao blogDao;
 	
-	
+	//findAllBlogPost
 	public List<BlogEntity> findAllBlogPost(Long userId){
 		if(userId == null) {
 			return null;
@@ -22,7 +22,26 @@ public class BlogService {
 			return blogDao.findByUserId(userId);
 		}
 	}
-	
+	//find Attribute
+	public List<BlogEntity> findBlogByAttribute(String blogAttribute) {
+		if (blogAttribute == null) {
+			return null;
+		} else {
+			return blogDao.findByBlogAttribute(blogAttribute);
+		}
+	}
+
+	public List<BlogEntity> findByUserIdAndBlogAttribute(Long userId, String attribute) {
+		if (userId == null || attribute == null) {
+			return null;
+		} else {
+			return blogDao.findByUserIdAndBlogAttribute(userId, attribute);
+		}
+	}
+
+
+
+
 	//新しいブログを書く、重複にも構いません
 	public boolean createBlogPost(String blogTitle,
 			String blogContents,String blogAttribute,

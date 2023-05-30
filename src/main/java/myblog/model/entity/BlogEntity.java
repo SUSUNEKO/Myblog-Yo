@@ -68,13 +68,13 @@ public class BlogEntity {
 	 public BlogEntity( 
 		@NonNull String blogTitle,
 	 	@NonNull String blogContents,
-		@NonNull String blogAttribute, 
+		@NonNull String blogAttribute,
 		@NonNull String blogImgUrl,
 		Long userId) {
 			this.blogTitle = blogTitle;
 			// this.registerDate = LocalDateTime.now(); 
 			this.blogContents = blogContents; 
-			this.blogAttribute = blogAttribute; 
+			this.blogAttribute = blogAttribute;
 	  		this.blogImgUrl = blogImgUrl; 
 	 		this.userId = userId; }
 	 

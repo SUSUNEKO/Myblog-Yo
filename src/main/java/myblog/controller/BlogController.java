@@ -40,10 +40,17 @@ public class BlogController {
 
         String userDisplayName = userList.getUserDisplayName();
 
-        List<BlogEntity> blogList = blogService.findAllBlogPost(userId);
+//        List<BlogEntity> blogList = blogService.findAllBlogPost(userId);
+        List<BlogEntity> essayList = blogService.findByUserIdAndBlogAttribute(userId,"essay");
+//        List<BlogEntity> essayList = blogService.findBlogByAttribute( "essay");
+//        List<BlogEntity> noteList = blogService.findBlogByAttribute( "note");
+        List<BlogEntity> noteList = blogService.findByUserIdAndBlogAttribute(userId,"note");
+
 
         model.addAttribute("userDisplayName", userDisplayName);
-        model.addAttribute("blogList", blogList);
+        model.addAttribute("essayList", essayList);
+        model.addAttribute("noteList", noteList);
+//        model.addAttribute("blogList", blogList);
         return "blog-list.html";
     }
 
@@ -73,7 +80,7 @@ public class BlogController {
 
         try {
             // 画像ファイルの保存先を指定する。
-            File blogFile = new File("./src/main/resources/static/blog-img/" + imgFileName);
+            File blogFile = new File("./src/main/resources/static/img/" + imgFileName);
             // 画像ファイルからバイナリデータを取得する
             byte[] bytes = blogImage.getBytes();
             // 画像を保存（書き出し）するためのバッファを用意する
@@ -91,9 +98,17 @@ public class BlogController {
         }else{
             return "blog-list.html";
         }
-
-       
     }
+
+    //To　view blog
+    @GetMapping("/user/blog/view/{blogId}")
+    public String viewBlog(
+            @PathVariable Long blogId,Model model){
+            BlogEntity blog = blogService.getBlogPost(blogId);
+            model.addAttribute("blog",blog);
+            return "blog-main.html";
+    }
+
 
     // What if user wants to edit the blog
     // Step 1: get mapping
