@@ -68,8 +68,24 @@ public class BlogService {
 		}
 	}
 	
-	//画像処理
-//	public boolean editBlogImage(Long blogId,String) {
+	// public boolean editBlogImage(Long blogId,String fileName,Long userId) {
+	// 	BlogEntity blogList = blogDao.findByBlogId(blogId);
+	// 	if(fileName == null || blogList.getBlogImgUrl().equals(fileName)) {
+	// 		return false;
+	// 	}else {
+	// 		/**
+	// 		 * blogList.setBlogId(blogId);: ブログIDを設定します。
+	// 		 * blogList.setBlogImage(fileName);: 新しい画像ファイル名を設定します。
+	// 		 * blogList.setUserId(userId);: ユーザーIDを設定します。
+	// 		 * blogDao.save(blogList);: ブログ情報を更新して保存します。
+	// 		 * return true;: 画像の編集に成功した場合、trueを返します。**/
+	// 		blogList.setBlogId(blogId);
+	// 		blogList.setBlogImgUrl(fileName);
+	// 		blogList.setUserId(userId);
+	// 		blogDao.save(blogList);
+	// 		return true;
+	// 	}
+	// }
 	
 	//削除
 	public boolean deleteBlog(Long blogId) {

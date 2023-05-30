@@ -9,20 +9,20 @@ document.addEventListener("DOMContentLoaded", function() {
       theme: "snow"
     });
   
-    // Handle form submission
-    var uploadButton = document.querySelector(".upload-button");
-    uploadButton.addEventListener("click", function(event) {
-      event.preventDefault();
-      var title = document.getElementById("title").value;
-      var content = editor.root.innerHTML;
-      var currentDate = new Date();
-      var timestamp = currentDate.getTime(); // Generate timestamp or use any ID generation logic
+    // // Handle form submission
+    // var uploadButton = document.querySelector(".upload-button");
+    // uploadButton.addEventListener("click", function(event) {
+    //   event.preventDefault();
+    //   var title = document.getElementById("title").value;
+    //   var content = editor.root.innerHTML;
+    //   var currentDate = new Date();
+    //   var timestamp = currentDate.getTime(); // Generate timestamp or use any ID generation logic
   
-      // Perform further processing or send data to backend
-      console.log("Title:", title);
-      console.log("Content:", content);
-      console.log("Timestamp:", timestamp);
-    });
+    //   // Perform further processing or send data to backend
+    //   console.log("Title:", title);
+    //   console.log("Content:", content);
+    //   console.log("Timestamp:", timestamp);
+    // });
   });
 
   // ++++图像挂件++++++++++++++++
