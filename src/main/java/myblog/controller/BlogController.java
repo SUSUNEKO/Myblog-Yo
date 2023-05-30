@@ -136,17 +136,17 @@ public class BlogController {
         }
     }
     
-    @PostMapping ("/delete")
-    Public String blogDelete(@RequestParam Long blogId,Model model) {
+    // @PostMapping ("/delete")
+    // Public String blogDelete(@RequestParam Long blogId,Model model) {
 
-        if(blogService.deleteBlog(blogId)) {
-			return "blog-main.html";
-		}else {
-			model.addAttribute("DeleteDetailMessage", "記事削除に失敗しました");
-			return "blog-delete.html";
-		}
+    //     if(blogService.deleteBlog(blogId)) {
+	// 		return "blog-main.html";
+	// 	}else {
+	// 		model.addAttribute("DeleteDetailMessage", "記事削除に失敗しました");
+	// 		return "blog-delete.html";
+	// 	}
 
-	}
+	// }
     
 
 

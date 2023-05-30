@@ -42,6 +42,23 @@
     background-color: #000000;
     z-index: 999;
   }
+  .signup-button {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    background-color: #d8152a;
+    font-family: 'Antonio', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    z-index: 999;
+  }
+
+  .signup-link {
+    color: #ffcdcd; 
+    text-decoration: none; /* 移除下划线 */
+  }
+  
 
   
 /* 登录表单样式 */
@@ -388,5 +405,5 @@
     margin-right: 30px;
   }
   
-
+  
  
