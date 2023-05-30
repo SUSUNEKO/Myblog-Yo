@@ -27,6 +27,7 @@ public class UserLoginController {
 	
 	@PostMapping("/login/process")
 	public String login(@RequestParam String userLoginName,@RequestParam String password) {
+		System.out.println("userLoginName: " + userLoginName + " password: " + password);
 		UserEntity userList = userService.loginAccount(userLoginName, password);
 		if(userList == null) {
 			return "redirect:/user/login";

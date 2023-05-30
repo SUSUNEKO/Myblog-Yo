@@ -18,7 +18,7 @@
         <div class="top-nav">
           <div class="logo">
             <!-- 左上角Logo -->
-            <p class="logo" id="username-display" name="userNameDisplay"></p>
+            <p class="logo" id="username-display" name="userNameDisplay" th:text="${userDisplayName}"></p>
           </div>
         </div>
       </header>
@@ -33,12 +33,12 @@
 					<div id="Essay-grid-container" class="grid-container" name="EssayGrid">
 						<div class="Essay-grid-item">
 							<!-- 单个项目内容 -->
-							<a th:href="@{/user/blog/edit/{blogId}(blogId=${blog.blogId})}" class="blog-colum">
+							<a th:href="@{/user/blog/edit/{blogId}(blogId=${blog.blogId})}" class="blog-colum" th:each="blog:${blogList}" >
 								<div class="img-container" name="imgContainer" id="imgContainer">
 									<img th:src="@{/blog-img/{items}(items=${blog.blogImage})}">
 								</div>
 							</a>
-							<a th:href="@{/user/blog/edit/{blogId}(blogId=${blog.blogId})}" class="blog-colum">
+							<!-- <a th:href="@{/user/blog/edit/{blogId}(blogId=${blog.blogId})}" class="blog-colum">
 								<div class="title-container" name="titleContainer" id="title">
 									<p th:text=" ${blog.blogTitle}"></p>
 								</div>
@@ -50,7 +50,7 @@
 								<div class="article-abstract" name="articleAbstract">
 									<p th:text=" ${blog.contents}"></p>
 								</div>
-							</a>
+							</a> -->
 						</div>
 					</div>					
 				</div>
@@ -61,12 +61,12 @@
 					<div id="Note-grid-container" class="grid-container" name="NoteGrid">
 						<div class="grid-item">
 							<!-- 单个项目内容 -->
-							<a th:href="@{/user/blog/edit/{blogId}(blogId=${blog.blogId})}" class="blog-colum">
+							<a th:href="@{/user/blog/edit/{blogId}(blogId=${blog.blogId})}" class="blog-colum" th:each="blog:${blogList}">
 							<div class="img-container" name="imgContainer" id="imgContainer">
 								<img th:src="@{/blog-img/{items}(items=${blog.blogImage})}">
 							</div>
 							</a>
-							<a th:href="@{/user/blog/edit/{blogId}(blogId=${blog.blogId})}" class="blog-colum">
+							<!-- <a th:href="@{/user/blog/edit/{blogId}(blogId=${blog.blogId})}" class="blog-colum">
 							<div class="title-container" name="titleContainer" id="title">
 								<p th:text=" ${blog.blogTitle}"></p>
 							</div>
@@ -78,7 +78,7 @@
 							<div class="article-abstract" name="articleAbstract">
 								<p th:text=" ${blog.contents}"></p>
 							</div>
-							</a>
+							</a> -->
 						  </div>
 					</div>					
 				</div>
@@ -87,7 +87,7 @@
 		</section>
 		<!-- 右下角添加按钮 -->
 		<div class="blog-edit-button">
-			<a th:href="@{/edit}" class="blog-edit-link">+</a>
+			<a th:href="@{/user/blog/edit}" class="blog-edit-link">+</a>
 		  </div>
 	</main>
     
