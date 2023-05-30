@@ -17,9 +17,8 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Entity
+
 @Table(name = "account")
-
-
 public class UserEntity {
 	
 	

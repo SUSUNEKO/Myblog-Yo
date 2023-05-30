@@ -28,21 +28,21 @@
       <div class="left-section">
         <div class="checkboxes">
           <label>
-            <input type="radio" name="article-type" value="essay"> Essay
+            <input type="radio" name="articleType" value="essay"> Essay
           </label>
           <label>
-            <input type="radio" name="article-type" value="note"> Note
+            <input type="radio" name="articleType" value="note"> Note
           </label>
         </div>
       </div>
         <!-- 中间内容 -->
         <div class="middle-section">
           <div class="title-input">
-            <input type="text" id="title" placeholder="/title">
+            <input type="text" id="title" placeholder="/title" name="blogTitle">
             <div class="underline"></div>
           </div>
           <div class="date-div">
-            <span id="current-date"></span>
+            <span id="current-date" name="currentDate"></span>
           </div>
 
           <div class="editor-imgimport">
@@ -60,7 +60,7 @@
 
           <div id="editor-container">
             <div id="editor">
-                <p>nice day</p>
+                <textarea name ="blogContents">nice day!!</textarea>
             </div>
               
           </div>
