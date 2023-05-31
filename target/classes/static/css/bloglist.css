@@ -1,31 +1,37 @@
 /* blog-list PAGE'S CSS */
 
- /* 全局样式定义 */
- body,html{
+/* 全局样式定义 */
+body,html{
     height: 100%;
     margin: 0;
     padding: 0;
     background-color: #f4edeb;
     font-family: 'Antonio','Noto Serif','Bodoni Moda','Playfair Display','Gloock','Roboto Mono',sans-serif,monospace,serif;
-  }
+}
 
-  button{
+a{
+    text-decoration: none;
+}
+
+button{
     border: none;
     outline: none;
     background-color: transparent;
     font-family: 'Antonio', sans-serif;
     font-size: 22px;
 
-  }
+}
 
-  /* 顶部导航栏样式 */
-  .top-nav {
+/* 顶部导航栏样式 */
+.top-nav {
     position: relative;
-    padding: px;
-  }
+    padding: 1px;
+    height: 45px;
+}
 
-  .logo {
+.logo {
     font-family: 'Bodoni Moda', sans-serif;
+    color: #d8152a;
     font-size:50px;
     font-weight: 600;
     font-style: italic;
@@ -34,63 +40,133 @@
     left:0;
     padding: 10px;
     z-index: 999;
-  }
-  .separator-line {
+}
+.separator-line {
     position: fixed;
     top: 45px; /* 位置 */
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #000000;
+    background-color:transparent;
+    border-bottom: #d8152a 1px dashed;
     z-index: 999;
-  }
+}
 
-  
+
 
 
 .container {
     display: flex;
     height: 100vh; /* 设置容器高度为视口的高度，使其占满整个屏幕 */
-  }
-  
-  .blog-list-left-section {
+}
+
+.blog-list-left-section {
     flex: 1; /* 左侧部分占据剩余空间 */
     overflow-y: auto; /* 纵向滚动条 */
     padding: 20px;
-  }
-  
-  .blog-list-right-section {
+
+}
+
+.blog-list-right-section {
     flex: 1; /* 右侧部分占据剩余空间 */
     overflow-y: auto; /* 纵向滚动条 */
     padding: 20px;
-  }
-  
-  .grid-container {
+
+}
+
+/* 控制两侧子元件 */
+.grid-container {
+    height: 400px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* 设置列宽，自动填充 */
     grid-auto-rows: 0; /* 自动计算行高 */
     grid-gap: 10px; /* 项目间的间隔 */
-  }
-  
-  .grid-item {
+    /* grid-row:100px; */
+
+}
+#Essay-grid-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.Essay-grid-item, .Note-grid-item {
+    /* border-color: #d8152a;
+    border: 2px; */
+
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch; /* 对齐工具 */
+}
+
+
+/*.Essay-grid-item img , .Note-grid-item img {*/
+img{
+    order:1;
+    max-width: 345px;
+    padding: 15px;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* 设置列宽，自动填充 */
-  }
+    /* float: left; */
+    left: 40px;
+    filter: brightness(80%) saturate(50%) hue-rotate(0deg) ;
+}
+.Essay-grid-item .title-container ,.Note-grid-item .title-container{
+    order:2;
+    align-self: flex-end;
 
+}
+.Essay-grid-item .article-abstract, .Note-grid-item .article-abstract{
+    order:3;
+}
 
-  .blog-edit-button {
-    position: fixed;
+/*.img-container{*/
+/*    position: relative;*/
+/*}*/
+img::after {
+    content: "";
+    position: absolute;
     top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(145, 9, 25); /* 蒙版的颜色 */
+    opacity: 1; /* 蒙版的透明度 */
+    mix-blend-mode: lighten;
+
+}
+
+.title-container{
+    color:#d8152a;
+    font-family: 'Courier Prime', monospace;
+    font-size: 18pt;
+}
+.article-abstract{
+    color:#d8152a;
+    font-family: 'Courier Prime', monospace;
+    font-size: 12pt;
+    text-align: justify;
+}
+
+
+
+
+
+.blog-edit-button {
+    position: fixed;
+    bottom: 0px;
     right: 0;
     padding: 10px;
     background-color: #d8152a;
     font-family: 'Antonio', sans-serif;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 80px;
     z-index: 999;
-  }
+}
 
-  .blog-edit-link {
-    color: #ffcdcd; 
+.blog-edit-link {
+    color: #ffcdcd;
     text-decoration: none; /* 移除下划线 */
-  }
+}
   
