@@ -7,10 +7,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Darumadrop+One&family=Gloock&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,400;1,400&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Courier+Prime&family=Darumadrop+One&family=Gloock&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,400;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
 
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <title>Mystory-Blog</title>
@@ -18,18 +16,18 @@
 <body>
     <div class="main-container">
         <div class="main-header">
-          <a href="blog-list.html">
+          <a th:href="@{/user/blog/list}">
             <i class="material-symbols-outlined">arrow_back_ios</i>
           </a>
           </div>
           <!-- 左边内容 -->
     
           <div class="left-section">
-            <div class="blog-move-button">
-              <a href="" class="prenextpage-button">
-                <p  id="prepage-button-link">&#8678;Pre-blog</p>
-              </a>
-            </div>
+<!--            <div class="blog-move-button">-->
+<!--              <a href="" class="prenextpage-button">-->
+<!--                <p  id="prepage-button-link">&#8678;Pre-blog</p>-->
+<!--              </a>-->
+<!--            </div>-->
           </div>
             <!-- 中间内容 -->
             <div class="middle-section">
@@ -42,18 +40,19 @@
               </div>
               <div id="blog-id-contents">
                 <div id="contents">
-                    <p th:text = "${blog.blogContents}"></p>
+                    <p th:utext = "${blog.blogContents}"></p>
                 </div>
               </div>
             </div>      
             <!-- 右边内容 -->
             <div class="right-section">
-                
-                <button id="deleteButton">[Delete]</button>
+
+                <button  id="deleteButton">[Delete]</button>
+
 
                 <div class="blog-move-button">
-                    <a href="" class="prenextpage-button">
-                      <p id="nextpage-button-link">next-blog &#8680;</p>
+                    <a th:href="@{/user/blog/edit/{blogId}}">
+                      <p id="nextpage-button-link">[Edit]</p>
                     </a>
                   </div>
             </div>        
@@ -65,7 +64,7 @@
           <p>SURE?</p>
           <div class="dialog-buttons">
             <button id="noButton">NO</button>
-            <button id="yesButton">YES</button>
+            <button id="yesButton" th:action="@{/user/blog/delete/{blogId}}">YES</button>
           </div>
         </div>
       </div>

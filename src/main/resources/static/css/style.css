@@ -206,6 +206,10 @@
   #blg-container {
     position: relative;
   }
+  #contents{
+      font-family: 'Courier Prime', monospace;
+
+  }
   
   .draggable-image {
     position: absolute;
@@ -264,7 +268,7 @@
 
     /* DELETE WINDOW */
 
-  #deleteButton{ 
+  #deleteButton{
       position: fixed;
       top: 30%;
       font-family: 'Antonio', sans-serif;
@@ -348,11 +352,9 @@
 .prenextpage-button:hover {
   color: rgb(13, 166, 46);
 }
-#prepage-button-link{
-  transform: translateX(10%);
-}
+
 #nextpage-button-link{
-  transform: translateX(-10%);
+  transform: translateX(-20%);
 }
 
 

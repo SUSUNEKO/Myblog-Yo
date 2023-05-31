@@ -8,7 +8,8 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Courier+Prime&family=Darumadrop+One&family=Gloock&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Roboto+Mono:ital,wght@0,100;0,400;1,400&display=swap" rel="stylesheet">
-    <title>Mystory</title>
+
+	<title>Mystory</title>
 </head>
 <body>
     <header>
@@ -43,7 +44,7 @@
 										<p th:text=" ${essay.blogTitle}"></p>
 									</div>
 								<div class="article-abstract" >
-									<p th:text=" ${essay.blogContents}"></p>
+									<p th:utext=" ${essay.blogContents}"></p>
 								</div>
 							</a>
 
@@ -66,13 +67,13 @@
 							</div>
 							</a>
 							<div class="title-container" id="note-title">
-								<p th:text=" ${note.blogTitle}"></p>
+								<p th:utext=" ${note.blogTitle}"></p>
 							</div>
 <!--							<div class="registerDate-container" name="registerDateContainer">-->
 <!--								<p th:text="${#temporals.format(blog.registerDate, 'yyyy/MM/dd')}"></p>-->
 <!--							</div>-->
 							<div class="article-abstract" >
-								<p th:text=" ${note.blogContents}"></p>
+								<p th:utext=" ${note.blogContents}"></p>
 							</div>
 						  </div>
 					</div>					

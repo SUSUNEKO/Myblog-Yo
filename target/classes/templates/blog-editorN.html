@@ -39,7 +39,7 @@
       <!-- 中间内容 -->
       <div class="middle-section">
         <div class="title-input">
-          <input type="text" id="title" placeholder="/title" name="blogTitle">
+          <input type="text" id="title" th:text = "${blog.blogTitle}" name="blogTitle">
           <div class="underline"></div>
         </div>
         <div class="date-div">
@@ -58,6 +58,8 @@
         <div id="editor-container">
           <input type="hidden" id="editor-input" name="blogContents">
           <div id="editor">
+            <img th:src="@{/img/{items}(items=${note.blogImgUrl})}">
+            <p th:text = "${blog.blogContents}"></p>
           </div>
         </div>
       </div>

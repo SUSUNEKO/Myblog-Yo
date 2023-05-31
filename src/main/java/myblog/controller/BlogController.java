@@ -101,7 +101,7 @@ public class BlogController {
     }
 
     //To　view blog
-    @GetMapping("/user/blog/view/{blogId}")
+    @GetMapping("/view/{blogId}")
     public String viewBlog(
             @PathVariable Long blogId,Model model){
             BlogEntity blog = blogService.getBlogPost(blogId);
@@ -123,7 +123,7 @@ public class BlogController {
 
         BlogEntity blogList = blogService.getBlogPost(blogId);
 
-        return "blog-edit.html";
+        return "blog-editN.html";
     }
 
     // Step 2: Post mapping
@@ -138,7 +138,7 @@ public class BlogController {
         UserEntity userList = (UserEntity) session.getAttribute("user");
         Long userId = userList.getUserId();
 
-        return "blog-edit.html";
+        return "blog-editN.html";
     }
 
     // DELETE BLOG
@@ -153,7 +153,7 @@ public class BlogController {
             return "redirect:/user/blog/main";
         } else {
             model.addAttribute("blogList", blogList);
-            return "blog-main.html";
+            return "blog-list.html";
         }
     }
 
