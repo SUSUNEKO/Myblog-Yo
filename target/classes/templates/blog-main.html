@@ -47,12 +47,10 @@
             <!-- 右边内容 -->
             <div class="right-section">
 
-                <button  id="deleteButton">[Delete]</button>
-
-
+                <button  id="deleteButton" class="delete-edit-botton">[Delete]</button>
                 <div class="blog-move-button">
-                    <a th:href="@{/user/blog/edit/{blogId}}">
-                      <p id="nextpage-button-link">[Edit]</p>
+                    <a th:href="@{'/user/blog/edit/'+${blog.blogId}}" class="delete-edit-botton">
+                      <p id="edit-button-link">[Edit]</p>
                     </a>
                   </div>
             </div>        
@@ -64,7 +62,10 @@
           <p>SURE?</p>
           <div class="dialog-buttons">
             <button id="noButton">NO</button>
-            <button id="yesButton" th:action="@{/user/blog/delete/{blogId}}">YES</button>
+              <form th:action="@{/user/blog/delete}" method="post">
+                  <input type="hidden" name="blogId" th:value="${blog.blogId}">
+                  <button id="yesButton">YES</button>
+              </form>
           </div>
         </div>
       </div>

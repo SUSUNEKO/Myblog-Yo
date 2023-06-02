@@ -336,7 +336,7 @@
 /* ----- */
 
 
-/* pre next blog button */
+/* Edit & Delete blog button */
 .blog-move-button {
 
   font-family: 'Antonio', sans-serif;
@@ -345,15 +345,15 @@
   display: flex;
   flex-direction: column;   
 }
-.prenextpage-button{
+.delete-edit-botton{
   color: #b90d0d; 
   text-decoration: none; /* 移除下划线 */
 }
-.prenextpage-button:hover {
+.delete-edit-botton:hover {
   color: rgb(13, 166, 46);
 }
 
-#nextpage-button-link{
+#edit-button-link{
   transform: translateX(-20%);
 }
 

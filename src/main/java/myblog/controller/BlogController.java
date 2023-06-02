@@ -38,6 +38,7 @@ public class BlogController {
         UserEntity userList = (UserEntity) session.getAttribute("user");
         Long userId = userList.getUserId();
 
+        String userLoginName = userList.getUserLoginName();
         String userDisplayName = userList.getUserDisplayName();
 
 //        List<BlogEntity> blogList = blogService.findAllBlogPost(userId);
@@ -46,7 +47,7 @@ public class BlogController {
 //        List<BlogEntity> noteList = blogService.findBlogByAttribute( "note");
         List<BlogEntity> noteList = blogService.findByUserIdAndBlogAttribute(userId,"note");
 
-
+        model.addAttribute("userLoginName",userLoginName);
         model.addAttribute("userDisplayName", userDisplayName);
         model.addAttribute("essayList", essayList);
         model.addAttribute("noteList", noteList);
@@ -59,9 +60,12 @@ public class BlogController {
     public String getBlogRegisterPage(Model model) {
 
         UserEntity userList = (UserEntity) session.getAttribute("user");
+
         String userDisplayName = userList.getUserDisplayName();
         model.addAttribute("userDisplayName", userDisplayName);
+
         return "blog-editor.html";
+
     }
 
     // To create a new blog post method,step2,write in edit page and save them.
@@ -114,7 +118,6 @@ public class BlogController {
     // Step 1: get mapping
     @GetMapping("/edit/{blogId}")
     public String getBlogEditPage(@PathVariable Long blogId, Model model) {
-
         UserEntity userList = (UserEntity) session.getAttribute("user");
         Long userId = userList.getUserId();
 
@@ -122,51 +125,57 @@ public class BlogController {
         model.addAttribute("userDisplayName", userName);
 
         BlogEntity blogList = blogService.getBlogPost(blogId);
+        model.addAttribute("blog",blogList);
+//会出错的地方
 
-        return "blog-editN.html";
+
+        return "blog-editorN.html";
     }
 
     // Step 2: Post mapping
-    @PostMapping("/post/{blogId}")
+    @PostMapping("/edit/update")
     public String blogUpdateEdit(
+            @RequestParam Long blogId,
             @RequestParam String blogTitle,
-            @RequestParam String currentDate, // use local time and cannot change it
             @RequestParam String articleType,
             @RequestParam("blogImage") MultipartFile blogImage,
             @RequestParam String blogContents, Model model) {
 
         UserEntity userList = (UserEntity) session.getAttribute("user");
         Long userId = userList.getUserId();
+        String imgFileName = blogImage.getOriginalFilename();
 
-        return "blog-editN.html";
-    }
-
-    // DELETE BLOG
-    @GetMapping("/delete/{blogId}")
-    public String getBlogDelete(@PathVariable Long blogId, Model model) {
-
-        UserEntity userList = (UserEntity) session.getAttribute("user");
-        Long userId = userList.getUserId();
-
-        BlogEntity blogList = blogService.getBlogPost(blogId);
-        if (blogList == null) {
-            return "redirect:/user/blog/main";
-        } else {
-            model.addAttribute("blogList", blogList);
-            return "blog-list.html";
+        try {
+            // 画像ファイルの保存先を指定する。
+            File blogFile = new File("./src/main/resources/static/img/" + imgFileName);
+            // 画像ファイルからバイナリデータを取得する
+            byte[] bytes = blogImage.getBytes();
+            // 画像を保存（書き出し）するためのバッファを用意する
+            BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(blogFile));
+            // 画像ファイルの書き出しする。
+            out.write(bytes);
+            // バッファを閉じることにより、書き出しを正常終了させる。
+            out.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if(blogService.editBlogPost(blogTitle,blogContents, articleType, imgFileName, userId, blogId)) {
+            return "redirect:/user/blog/list";
+        }else {
+            return "blog-editorN.html";
         }
     }
 
-    // @PostMapping ("/delete")
-    // Public String blogDelete(@RequestParam Long blogId,Model model) {
+    // DELETE BLOG
+    @PostMapping("/delete")
+    public String blogDelete(@RequestParam Long blogId,Model model) {
+        if(blogService.deleteBlog(blogId)) {
+            return "redirect:/user/blog/list";
+        }else {
+            return "redirect:/user/blog/list";
+        }
 
-    // if(blogService.deleteBlog(blogId)) {
-    // return "blog-main.html";
-    // }else {
-    // model.addAttribute("DeleteDetailMessage", "記事削除に失敗しました");
-    // return "blog-delete.html";
-    // }
+    }
 
-    // }
 
 }

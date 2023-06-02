@@ -70,7 +70,7 @@ public class BlogService {
 	
 	//EDIT POST
 	public boolean editBlogPost(String blogTitle,
-			LocalDate registerDate,String blogContents,
+			String blogContents,
 			String blogAttribute,String blogImgUrl,Long userId,Long blogId) {
 		BlogEntity blogList = blogDao.findByBlogId(blogId);
 		if(userId == null) {
