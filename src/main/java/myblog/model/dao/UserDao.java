@@ -11,7 +11,9 @@ public interface UserDao extends JpaRepository<UserEntity, Long> {
 	UserEntity save(UserEntity userEntity);
 	
 	UserEntity findByEmail (String email);
-	
+
+	UserEntity findByUserLoginNameAndEmail(String userLoginName,String email);
+
 	UserEntity findByEmailAndPassword(String email,String password);
 	
 	UserEntity findByUserLoginNameAndPassword(String userLoginName,String password);

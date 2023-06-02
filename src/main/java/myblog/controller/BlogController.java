@@ -96,7 +96,7 @@ public class BlogController {
         articleType, imgFileName, userId)){
            return "redirect:/user/blog/list";
         }else{
-            return "blog-list.html";
+            return "blog-list.html";//editor
         }
     }
 

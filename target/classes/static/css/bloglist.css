@@ -138,8 +138,8 @@ img::after {
 }
 
 .title-container{
-    color:#d8152a;
-    font-family: 'Courier Prime', monospace;
+    color:#d8152a;    font-family: 'Courier Prime', monospace;
+
     font-size: 18pt;
 }
 .article-abstract{

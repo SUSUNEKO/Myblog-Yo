@@ -39,7 +39,7 @@ public class BlogEntity {
 	// private LocalDate registerDate;
 	
 	@NonNull
-	@Column(name = "blog_contents")
+	@Column(name = "blog_contents", columnDefinition = "text")
 	private String blogContents;
 	
 	@NonNull

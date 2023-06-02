@@ -59,7 +59,7 @@
           <input type="hidden" id="editor-input" name="blogContents">
           <div id="editor">
             <img th:src="@{/img/{items}(items=${note.blogImgUrl})}">
-            <p th:text = "${blog.blogContents}"></p>
+            <p th:utext = "${blog.blogContents}"></p>
           </div>
         </div>
       </div>
