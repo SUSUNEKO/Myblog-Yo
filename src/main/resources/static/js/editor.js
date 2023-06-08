@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // });
   // });
 
-  // ++++图像挂件++++++++++++++++
+  // ++++画像見せる機能++++++++++++++++
   const fileInput = document.getElementById('blogImageInput');
   const previewImage = document.getElementById('previewImage');
   const imgPreviewHolder = document.getElementById('img-preview');
